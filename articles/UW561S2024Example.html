@@ -79,32 +79,39 @@ each sample is drawn from each Gaussian cluster).</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://linnykos.github.io/561_s2024_example/">UW561S2024Example</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/run_example.html">run_example</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="plotting-the-data">Plotting the data<a class="anchor" aria-label="anchor" href="#plotting-the-data"></a>
+</h2>
 <p>We now want to unpack the example by plotting the data.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
-<span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>     pch <span class="op">=</span> <span class="fl">16</span>, </span>
-<span>     asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
+<span>               col <span class="op">=</span> <span class="fu">grDevices</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>               pch <span class="op">=</span> <span class="fl">16</span>, </span>
+<span>               asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <p><img src="UW561S2024Example_files/figure-html/unnamed-chunk-2-1.png" width="700"></p>
+</div>
+<div class="section level2">
+<h2 id="interpreting-the-em-results">Interpreting the EM results<a class="anchor" aria-label="anchor" href="#interpreting-the-em-results"></a>
+</h2>
 <p>Now let’s plot the data with the estimated means marked on the
 plot.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
-<span>     col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>     pch <span class="op">=</span> <span class="fl">16</span>, </span>
-<span>     asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
+<span>               col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>               pch <span class="op">=</span> <span class="fl">16</span>, </span>
+<span>               asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
 <span><span class="kw">for</span><span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span><span class="op">)</span><span class="op">{</span></span>
 <span>  <span class="va">mean_vec</span> <span class="op">&lt;-</span> <span class="va">res</span><span class="op">$</span><span class="va">em_results</span><span class="op">$</span><span class="va">means</span><span class="op">[</span><span class="va">i</span>,<span class="op">]</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span>
-<span>         y <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, </span>
-<span>         cex <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>         col <span class="op">=</span> <span class="st">"white"</span>, </span>
-<span>         pch <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span>
-<span>         y <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, </span>
-<span>         cex <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>         col <span class="op">=</span> <span class="va">i</span><span class="op">+</span><span class="fl">1</span>, </span>
-<span>         pch <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span>
+<span>  <span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span>
+<span>                   y <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, </span>
+<span>                   cex <span class="op">=</span> <span class="fl">3</span>,</span>
+<span>                   col <span class="op">=</span> <span class="st">"white"</span>, </span>
+<span>                   pch <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span>
+<span>  <span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>, </span>
+<span>                   y <span class="op">=</span> <span class="va">mean_vec</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>, </span>
+<span>                   cex <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>                   col <span class="op">=</span> <span class="va">i</span><span class="op">+</span><span class="fl">1</span>, </span>
+<span>                   pch <span class="op">=</span> <span class="fl">16</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p><img src="UW561S2024Example_files/figure-html/unnamed-chunk-3-1.png" width="700">
 We can also plot based on the (estimated) probability each sample
@@ -120,24 +127,29 @@ originates from each of the clusters.</p>
 <span>    <span class="va">color_palette</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html" class="external-link">which.min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html" class="external-link">abs</a></span><span class="op">(</span><span class="va">x</span> <span class="op">-</span> <span class="va">break_value</span><span class="op">)</span><span class="op">)</span><span class="op">]</span></span>
 <span>  <span class="op">}</span><span class="op">)</span></span>
 <span>  </span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
-<span>     col <span class="op">=</span> <span class="va">color_vec</span>,</span>
-<span>     pch <span class="op">=</span> <span class="fl">16</span>, </span>
-<span>     asp <span class="op">=</span> <span class="cn">T</span>,</span>
-<span>     main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Probability of cluster"</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span></span>
+<span>  <span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
+<span>                 col <span class="op">=</span> <span class="va">color_vec</span>,</span>
+<span>                 pch <span class="op">=</span> <span class="fl">16</span>, </span>
+<span>                 asp <span class="op">=</span> <span class="cn">T</span>,</span>
+<span>                 main <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"Probability of cluster"</span>, <span class="va">i</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code></pre></div>
 <p><img src="UW561S2024Example_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+</div>
+<div class="section level2">
+<h2 id="comparing-against-k-means-clustering">Comparing against K-means clustering<a class="anchor" aria-label="anchor" href="#comparing-against-k-means-clustering"></a>
+</h2>
 <p>EM via Gaussian mixture model is often known as “soft clustering.” We
 can do a simple comparison against K-means, which is sometimes called a
 “hard clustering.”</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">kmean_res</span> <span class="op">&lt;-</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/kmeans.html" class="external-link">kmeans</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, centers <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
-<span>     col <span class="op">=</span> <span class="va">kmean_res</span><span class="op">$</span><span class="va">cluster</span><span class="op">+</span><span class="fl">1</span>,</span>
-<span>     pch <span class="op">=</span> <span class="fl">16</span>, </span>
-<span>     asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">graphics</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">res</span><span class="op">$</span><span class="va">data</span>, </span>
+<span>               col <span class="op">=</span> <span class="va">kmean_res</span><span class="op">$</span><span class="va">cluster</span><span class="op">+</span><span class="fl">1</span>,</span>
+<span>               pch <span class="op">=</span> <span class="fl">16</span>, </span>
+<span>               asp <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span></code></pre></div>
 <p><img src="UW561S2024Example_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+</div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
 </div>
