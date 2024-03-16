@@ -5,7 +5,7 @@ This is a demo package for UW BIOST 561 (Spring 2024), taught by Kevin Lin.
 
 # How to install
 
-This package is called UW561S2024Example. To install, run the following code (in R):
+This package is called `UW561S2024Example`. To install, run the following code (in R):
 ```{r}
 library(devtools)
 devtools::install_github("linnykos/561_s2024_example")
