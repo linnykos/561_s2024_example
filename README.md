@@ -20,7 +20,7 @@ devtools::install_github("linnykos/561_s2024_example")
 Upon completion, you can run the following code (in R):
 ```R
 library(UW561S2024Example)
-run_example()
+UW561S2024Example::run_example()
 ```
 
 # Dependencies

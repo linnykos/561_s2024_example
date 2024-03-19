@@ -5,8 +5,16 @@
 #' @return a list containing \code{data} (the dataset generated),
 #' \code{em_results} (the output of \code{EM_spherical_gaussians}),
 #' and \code{probabilities} (the output of \code{compute_probabilities})
-#' @export
 #'
+#' This program uses the following functions:
+#' \code{generate_mixture_gaussians},
+#' \code{EM_spherical_gaussians}, and
+#' \code{compute_probabilities}.
+#'
+#' @export
+#' @seealso
+#' \code{generate_mixture_gaussians()}, \code{EM_spherical_gaussians()},
+#' and \code{compute_probabilities()}
 #' @examples
 #' res <- run_example()
 #' res$em_results

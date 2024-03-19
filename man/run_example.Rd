@@ -13,6 +13,11 @@ run_example(n = 5000)
 a list containing \code{data} (the dataset generated),
 \code{em_results} (the output of \code{EM_spherical_gaussians}),
 and \code{probabilities} (the output of \code{compute_probabilities})
+
+This program uses the following functions:
+\code{generate_mixture_gaussians},
+\code{EM_spherical_gaussians}, and
+\code{compute_probabilities}.
 }
 \description{
 Simulate an example
@@ -20,4 +25,8 @@ Simulate an example
 \examples{
 res <- run_example()
 res$em_results
+}
+\seealso{
+\code{generate_mixture_gaussians()}, \code{EM_spherical_gaussians()},
+and \code{compute_probabilities()}
 }

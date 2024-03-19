@@ -23,7 +23,7 @@ The following line of code runs the entire example (simulating the data, running
 ```{r}
 library(UW561S2024Example)
 set.seed(10)
-res <- run_example()
+res <- UW561S2024Example::run_example()
 ```
 
 # Plotting the data 
