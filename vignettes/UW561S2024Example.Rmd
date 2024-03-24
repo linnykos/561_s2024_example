@@ -2,7 +2,12 @@
 title: "Small demo"
 author: "Kevin Lin"
 date: "`r Sys.Date()`"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_document:
+    toc: true
+    toc_float:
+      toc_collapsed: true
+    theme: united
 vignette: >
   %\VignetteIndexEntry{Small demo}
   %\VignetteEngine{knitr::rmarkdown}
@@ -16,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is a demo vignette for our package. We will generate 2-dimensional data that is a mixture of 3 Gaussians, and then use an EM algorithm to estimate the 3 Gaussians.
+This is a demo vignette for our package. We will generate 2-dimensional data that is a mixture of 3 Gaussians, and then use an EM algorithm to estimate a clustering of the data.
 
 The following line of code runs the entire example (simulating the data, running the EM algorithm, and computing the probabilities that each sample is drawn from each Gaussian cluster).
 
