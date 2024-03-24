@@ -27,7 +27,7 @@ run_example <- function(n = 5000){
   data <- generate_mixture_gaussians(n, means, covariances, proportions)
 
   # Fit EM algorithm to the generated data
-  k <- 3 # Number of Gaussian components
+  k <- 3 # Number of Gaussian components in this example
   em_results <- EM_spherical_gaussians(data, k)
 
   # Assuming em_results is the output from EM_spherical_gaussians
