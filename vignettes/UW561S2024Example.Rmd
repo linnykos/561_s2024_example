@@ -21,9 +21,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-This is a demo vignette for our package. We will generate 2-dimensional data that is a mixture of 3 Gaussians, and then use an EM algorithm to estimate a clustering of the data.
+This is a demo vignette for our package. We will generate 2-dimensional data that is a mixture of 3 Gaussians, and then use an EM algorithm to estimate a clustering of the data. 
 
-The following line of code runs the entire example (simulating the data, running the EM algorithm, and computing the probabilities that each sample is drawn from each Gaussian cluster).
+The following lines of code runs the entire example (simulating the data, running the EM algorithm, and computing the probabilities that each sample is drawn from each Gaussian cluster).
 
 ```{r}
 library(UW561S2024Example)
