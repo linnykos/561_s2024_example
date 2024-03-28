@@ -5,7 +5,7 @@
 #' @param k number of clusters
 #' @param max.iter maximum iteration of EM
 #' @param tol relative change in log-likelihood. If the change is less than
-#' \code{tol}, then the method terminates early
+#' \code{tol}, then the method terminates early.
 #'
 #' @return a list with elements \code{means}, \code{variances},
 #' \code{proportions}, and \code{log_likelihood} for all the respective
